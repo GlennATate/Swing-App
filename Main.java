@@ -6,6 +6,9 @@ public class Main
 {
   public static void main (String args[])
   {
+    System.out.println("Glenn Tate - Swing App");
+    System.out.println("P.S. Click the fullscreen button on the app if nothing appears :)");
+
     JFrame frame1 = new JFrame ("Tate Swing App");
     frame1.setDefaultCloseOperation
     (JFrame.EXIT_ON_CLOSE);
@@ -17,25 +20,28 @@ public class Main
     JPanel panel1 = new JPanel(new GridLayout(2,2,20,20));
 
     //Label 1
-    JLabel label1 = new JLabel("Press A Button");
-    JTextField textfield1 = new JTextField(10);
+    JLabel label1 = new JLabel("Welcome!");
+    JTextField textfield1 = new JTextField("change the text", 16);
 
     //Label 2
-    JLabel label2 = new JLabel("Press A Button");
-    JTextField textfield2 = new JTextField(50);
+    JLabel label2 = new JLabel("Hello There!");
+    JTextField textfield2 = new JTextField("change the text", 16);
 
     //Button 1
-    JButton button1 = new JButton("Change Label");
+    JButton button1 = new JButton("Submit Text Field 1");
 
     button1.addActionListener(new ActionListener()
     {
-        public void actionPerformed
-        (ActionEvent e)
-        {
-          String[] phrases = {"Space is HUGE!", "That's a pretty star", "That's a big space ship", "Everything is so different here"};
-          String newText = phrases[(int)(Math.random() * phrases.length)];
-          label1.setText(newText);
+      public void actionPerformed
+      (ActionEvent e)
+      {
+        String s = e.getActionCommand(); 
+        if (s.equals("Submit Text Field 1")) 
+        { 
+          label1.setText(textfield1.getText()); 
+          textfield1.setText("  ");
         }
+      }    
     });
 
     //Button 2
@@ -50,17 +56,20 @@ public class Main
     });
 
     //Button 3
-    JButton button3 = new JButton("Touch Me");
+    JButton button3 = new JButton("Submit Text Field 2");
 
     button3.addActionListener(new ActionListener()
     {
-        public void actionPerformed
-        (ActionEvent e)
-        {
-          String[] phrases = {"This pretty fun!", "Nice One", "You Touched Me!", "You can follow instructions :)"};
-          String newText = phrases[(int)(Math.random() * phrases.length)];
-          label2.setText(newText);
+      public void actionPerformed
+      (ActionEvent e)
+      {
+        String s = e.getActionCommand(); 
+        if (s.equals("Submit Text Field 2")) 
+        { 
+          label2.setText(textfield2.getText()); 
+          textfield2.setText("  ");
         }
+      }    
     });
 
     panel1.add(button1);
@@ -72,7 +81,7 @@ public class Main
     panel1.add(textfield2);
 
     //Panel 2
-    JPanel panel2 = new JPanel (new BorderLayout(10,10));
+    JPanel panel2 = new JPanel (new BorderLayout(50,50));
 
     //Image 1 - the space Image
     ImageIcon spaceImg = new ImageIcon ("space.jpg", "Just Space");
