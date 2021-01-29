@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Main
 {
@@ -8,6 +10,16 @@ public class Main
   {
     System.out.println("Glenn Tate - Swing App");
     System.out.println("P.S. Click the fullscreen button on the app if nothing appears :)");
+
+
+    //Array List
+    ArrayList<String> sports = new ArrayList<>();
+    sports.add("Basketball - Michael Jordan/Bulls");
+    sports.add("Basketball - Anthony Davis/Lakers");
+    sports.add("Basketball - Lebron James/Lakers");
+    sports.add("Basketball - Kobe Bryant/Lakers");
+    sports.add("Basketball - Zion Williamson/Pelicans");
+    sports.add("Basketball - Lamelo Ball/Hornets");
 
     JFrame frame1 = new JFrame ("Tate Swing App");
     frame1.setDefaultCloseOperation
@@ -45,13 +57,18 @@ public class Main
     });
 
     //Button 2
-    JButton button2 = new JButton ("Don't Touch Me");
+    JButton button2 = new JButton ("List");
+
     button2.addActionListener(new ActionListener()
     {
       public void actionPerformed
       (ActionEvent e)
       {
-        System.out.println("No No, Don't Touch Me There This Is My No No Sqaure. No No, Don't Touch Me There This Is My No No Sqaure.");
+        System.out.println("\nThis is a list of my favorite basketball players");
+        for(int i = 0; i < sports.size(); i++) //to print out the array list
+        {
+          System.out.println(sports.get(i));
+        }
       }
     });
 
